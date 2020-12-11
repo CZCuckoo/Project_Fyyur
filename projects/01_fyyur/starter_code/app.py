@@ -14,18 +14,19 @@ from logging import Formatter, FileHandler
 from flask_wtf import Form
 from forms import *
 from models import *
+
+
 #----------------------------------------------------------------------------#
 # App Config.
 #----------------------------------------------------------------------------#
 
-app = Flask(__name__) #creates an application that gets named after the name of our file
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:postgres@localhost:5432/project_fyyur'
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+app = Flask(__name__) 
+moment = Moment(app)
+app.config.from_object('config')
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 
 
-# TODOS: connect to a local postgresql database
 
 #----------------------------------------------------------------------------#
 # Filters.
@@ -63,12 +64,10 @@ def venues():
   data = [] #empty data list
   
   for venue in venues:
-    # upcoming_shows = venue.shows.filter(Show.start_time > current_time).all()
     if venue_location == venue.city + venue.state:
       data[len(data) - 1]["venues"].append({
         "id": venue.id,
         "name":venue.name,
-        # "num_upcoming_shows": len(upcoming_shows) # a count of the number of shows
       })
     else:
       venue_location == venue.city + venue.state
@@ -78,7 +77,6 @@ def venues():
         "venues": [{
           "id": venue.id,
           "name":venue.name,
-          # "num_upcoming_shows": len(upcoming_shows)
         }]
       })
       
@@ -92,14 +90,24 @@ def search_venues():
   # TODOS: implement search on artists with partial string search. Ensure it is case-insensitive.
   # seach for Hop should return "The Musical Hop".
   # search for "Music" should return "The Musical Hop" and "Park Square Live Music & Coffee"
-  response={
-    "count": 1,
-    "data": [{
-      "id": 2,
-      "name": "The Dueling Pianos Bar",
-      "num_upcoming_shows": 0,
-    }]
-  }
+  
+  search_term = request.form.get('search_term', '')
+  print("Search term is " + search_term)
+  search_results = db.session.query(Venue).filter(Venue.name.ilike(f'%{search_term}%')).all()
+  data = []
+  
+  for result in search_results:
+    data.append({
+      "id": result.id,
+      "name": result.name,
+      # "num_upcoming_shows": len(db.session.query(show).filter(show.artist_id == result.id).filter(show.start_time > datetime.now()).all()),
+    })
+    
+    response = {
+      "count": len(search_results),
+      "data": data
+    }
+
   return render_template('pages/search_venues.html', results=response, search_term=request.form.get('search_term', ''))
 
 @app.route('/venues/<int:venue_id>')
@@ -250,17 +258,24 @@ def artists():
 
 @app.route('/artists/search', methods=['POST'])
 def search_artists():
-  # TODOS: implement search on artists with partial string search. Ensure it is case-insensitive.
-  # seach for "A" should return "Guns N Petals", "Matt Quevado", and "The Wild Sax Band".
-  # search for "band" should return "The Wild Sax Band".
-  response={
-    "count": 1,
-    "data": [{
-      "id": 4,
-      "name": "Guns N Petals",
-      "num_upcoming_shows": 0,
-    }]
-  }
+  
+  search_term = request.form.get('search_term', '')
+  print("Search term is " + search_term)
+  search_results = db.session.query(Artist).filter(Artist.name.ilike(f'%{search_term}%')).all()
+  data = []
+  
+  for result in search_results:
+    data.append({
+      "id": result.id,
+      "name": result.name,
+      # "num_upcoming_shows": len(db.session.query(show).filter(show.artist_id == result.id).filter(show.start_time > datetime.now()).all()),
+    })
+    
+    response = {
+      "count": len(search_results),
+      "data": data
+    }
+  
   return render_template('pages/search_artists.html', results=response, search_term=request.form.get('search_term', ''))
 
 @app.route('/artists/<int:artist_id>')
@@ -268,6 +283,7 @@ def show_artist(artist_id):
   # shows the venue page with the given venue_id
   # TODOS: replace with real venue data from the venues table, using venue_id
   artist_info = db.session.query(Artist).get(artist_id)
+  # artist_info = Artist.query.get(artist_id)
   data={
     "id": artist_info.id,
     "name": artist_info.name,

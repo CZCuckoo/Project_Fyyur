@@ -3122,3 +3122,325 @@ NameError: name 'itemgetter' is not defined
 2020-12-10 17:28:46,218 INFO: errors [in C:\Users\cjohnson\Desktop\Projects\Personal\Udacity\FSND\projects\01_fyyur\starter_code\app.py:500]
 2020-12-10 17:28:46,363 INFO: errors [in app.py:500]
 2020-12-10 17:28:46,363 INFO: errors [in app.py:500]
+2020-12-11 09:14:48,455 INFO: errors [in C:\Users\cjohnson\Desktop\Projects\Personal\Udacity\FSND\projects\01_fyyur\starter_code\app.py:456]
+2020-12-11 09:14:48,812 INFO: errors [in app.py:456]
+2020-12-11 09:14:48,812 INFO: errors [in app.py:456]
+2020-12-11 09:15:20,902 INFO: errors [in C:\Users\cjohnson\Desktop\Projects\Personal\Udacity\FSND\projects\01_fyyur\starter_code\app.py:456]
+2020-12-11 09:15:21,133 INFO: errors [in app.py:456]
+2020-12-11 09:15:21,133 INFO: errors [in app.py:456]
+2020-12-11 09:51:43,008 INFO: errors [in C:\Users\cjohnson\Desktop\Projects\Personal\Udacity\FSND\projects\01_fyyur\starter_code\app.py:453]
+2020-12-11 09:51:43,085 INFO: errors [in app.py:453]
+2020-12-11 09:51:43,085 INFO: errors [in app.py:453]
+2020-12-11 09:51:52,470 ERROR: Exception on /artists [GET] [in C:\Users\cjohnson\Desktop\Projects\Personal\Udacity\FSND\projects\01_fyyur\starter_code\env\lib\site-packages\flask\app.py:1891]
+Traceback (most recent call last):
+  File "C:\Users\cjohnson\Desktop\Projects\Personal\Udacity\FSND\projects\01_fyyur\starter_code\env\lib\site-packages\sqlalchemy\engine\base.py", line 1276, in _execute_context
+    self.dialect.do_execute(
+  File "C:\Users\cjohnson\Desktop\Projects\Personal\Udacity\FSND\projects\01_fyyur\starter_code\env\lib\site-packages\sqlalchemy\engine\default.py", line 593, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.OperationalError: no such table: Artist
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\cjohnson\Desktop\Projects\Personal\Udacity\FSND\projects\01_fyyur\starter_code\env\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\cjohnson\Desktop\Projects\Personal\Udacity\FSND\projects\01_fyyur\starter_code\env\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\cjohnson\Desktop\Projects\Personal\Udacity\FSND\projects\01_fyyur\starter_code\env\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\cjohnson\Desktop\Projects\Personal\Udacity\FSND\projects\01_fyyur\starter_code\env\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "C:\Users\cjohnson\Desktop\Projects\Personal\Udacity\FSND\projects\01_fyyur\starter_code\env\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\cjohnson\Desktop\Projects\Personal\Udacity\FSND\projects\01_fyyur\starter_code\env\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "app.py", line 245, in artists
+    data = db.session.query(Artist).all()
+  File "C:\Users\cjohnson\Desktop\Projects\Personal\Udacity\FSND\projects\01_fyyur\starter_code\env\lib\site-packages\sqlalchemy\orm\query.py", line 3373, in all
+    return list(self)
+  File "C:\Users\cjohnson\Desktop\Projects\Personal\Udacity\FSND\projects\01_fyyur\starter_code\env\lib\site-packages\sqlalchemy\orm\query.py", line 3535, in __iter__
+    return self._execute_and_instances(context)
+  File "C:\Users\cjohnson\Desktop\Projects\Personal\Udacity\FSND\projects\01_fyyur\starter_code\env\lib\site-packages\sqlalchemy\orm\query.py", line 3560, in _execute_and_instances
+    result = conn.execute(querycontext.statement, self._params)
+  File "C:\Users\cjohnson\Desktop\Projects\Personal\Udacity\FSND\projects\01_fyyur\starter_code\env\lib\site-packages\sqlalchemy\engine\base.py", line 1011, in execute
+    return meth(self, multiparams, params)
+  File "C:\Users\cjohnson\Desktop\Projects\Personal\Udacity\FSND\projects\01_fyyur\starter_code\env\lib\site-packages\sqlalchemy\sql\elements.py", line 298, in _execute_on_connection
+    return connection._execute_clauseelement(self, multiparams, params)
+  File "C:\Users\cjohnson\Desktop\Projects\Personal\Udacity\FSND\projects\01_fyyur\starter_code\env\lib\site-packages\sqlalchemy\engine\base.py", line 1124, in _execute_clauseelement
+    ret = self._execute_context(
+  File "C:\Users\cjohnson\Desktop\Projects\Personal\Udacity\FSND\projects\01_fyyur\starter_code\env\lib\site-packages\sqlalchemy\engine\base.py", line 1316, in _execute_context
+    self._handle_dbapi_exception(
+  File "C:\Users\cjohnson\Desktop\Projects\Personal\Udacity\FSND\projects\01_fyyur\starter_code\env\lib\site-packages\sqlalchemy\engine\base.py", line 1510, in _handle_dbapi_exception
+    util.raise_(
+  File "C:\Users\cjohnson\Desktop\Projects\Personal\Udacity\FSND\projects\01_fyyur\starter_code\env\lib\site-packages\sqlalchemy\util\compat.py", line 182, in raise_
+    raise exception
+  File "C:\Users\cjohnson\Desktop\Projects\Personal\Udacity\FSND\projects\01_fyyur\starter_code\env\lib\site-packages\sqlalchemy\engine\base.py", line 1276, in _execute_context
+    self.dialect.do_execute(
+  File "C:\Users\cjohnson\Desktop\Projects\Personal\Udacity\FSND\projects\01_fyyur\starter_code\env\lib\site-packages\sqlalchemy\engine\default.py", line 593, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such table: Artist
+[SQL: SELECT "Artist".id AS "Artist_id", "Artist".name AS "Artist_name", "Artist".city AS "Artist_city", "Artist".state AS "Artist_state", "Artist".phone AS "Artist_phone", "Artist".genres AS "Artist_genres", "Artist".image_link AS "Artist_image_link", "Artist".facebook_link AS "Artist_facebook_link", "Artist".website AS "Artist_website", "Artist".seeking_venue AS "Artist_seeking_venue", "Artist".seeking_description AS "Artist_seeking_description" 
+FROM "Artist"]
+(Background on this error at: http://sqlalche.me/e/13/e3q8)
+2020-12-11 09:51:52,470 ERROR: Exception on /artists [GET] [in C:\Users\cjohnson\Desktop\Projects\Personal\Udacity\FSND\projects\01_fyyur\starter_code\env\lib\site-packages\flask\app.py:1891]
+Traceback (most recent call last):
+  File "C:\Users\cjohnson\Desktop\Projects\Personal\Udacity\FSND\projects\01_fyyur\starter_code\env\lib\site-packages\sqlalchemy\engine\base.py", line 1276, in _execute_context
+    self.dialect.do_execute(
+  File "C:\Users\cjohnson\Desktop\Projects\Personal\Udacity\FSND\projects\01_fyyur\starter_code\env\lib\site-packages\sqlalchemy\engine\default.py", line 593, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.OperationalError: no such table: Artist
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\cjohnson\Desktop\Projects\Personal\Udacity\FSND\projects\01_fyyur\starter_code\env\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\cjohnson\Desktop\Projects\Personal\Udacity\FSND\projects\01_fyyur\starter_code\env\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\cjohnson\Desktop\Projects\Personal\Udacity\FSND\projects\01_fyyur\starter_code\env\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\cjohnson\Desktop\Projects\Personal\Udacity\FSND\projects\01_fyyur\starter_code\env\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "C:\Users\cjohnson\Desktop\Projects\Personal\Udacity\FSND\projects\01_fyyur\starter_code\env\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\cjohnson\Desktop\Projects\Personal\Udacity\FSND\projects\01_fyyur\starter_code\env\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "app.py", line 245, in artists
+    data = db.session.query(Artist).all()
+  File "C:\Users\cjohnson\Desktop\Projects\Personal\Udacity\FSND\projects\01_fyyur\starter_code\env\lib\site-packages\sqlalchemy\orm\query.py", line 3373, in all
+    return list(self)
+  File "C:\Users\cjohnson\Desktop\Projects\Personal\Udacity\FSND\projects\01_fyyur\starter_code\env\lib\site-packages\sqlalchemy\orm\query.py", line 3535, in __iter__
+    return self._execute_and_instances(context)
+  File "C:\Users\cjohnson\Desktop\Projects\Personal\Udacity\FSND\projects\01_fyyur\starter_code\env\lib\site-packages\sqlalchemy\orm\query.py", line 3560, in _execute_and_instances
+    result = conn.execute(querycontext.statement, self._params)
+  File "C:\Users\cjohnson\Desktop\Projects\Personal\Udacity\FSND\projects\01_fyyur\starter_code\env\lib\site-packages\sqlalchemy\engine\base.py", line 1011, in execute
+    return meth(self, multiparams, params)
+  File "C:\Users\cjohnson\Desktop\Projects\Personal\Udacity\FSND\projects\01_fyyur\starter_code\env\lib\site-packages\sqlalchemy\sql\elements.py", line 298, in _execute_on_connection
+    return connection._execute_clauseelement(self, multiparams, params)
+  File "C:\Users\cjohnson\Desktop\Projects\Personal\Udacity\FSND\projects\01_fyyur\starter_code\env\lib\site-packages\sqlalchemy\engine\base.py", line 1124, in _execute_clauseelement
+    ret = self._execute_context(
+  File "C:\Users\cjohnson\Desktop\Projects\Personal\Udacity\FSND\projects\01_fyyur\starter_code\env\lib\site-packages\sqlalchemy\engine\base.py", line 1316, in _execute_context
+    self._handle_dbapi_exception(
+  File "C:\Users\cjohnson\Desktop\Projects\Personal\Udacity\FSND\projects\01_fyyur\starter_code\env\lib\site-packages\sqlalchemy\engine\base.py", line 1510, in _handle_dbapi_exception
+    util.raise_(
+  File "C:\Users\cjohnson\Desktop\Projects\Personal\Udacity\FSND\projects\01_fyyur\starter_code\env\lib\site-packages\sqlalchemy\util\compat.py", line 182, in raise_
+    raise exception
+  File "C:\Users\cjohnson\Desktop\Projects\Personal\Udacity\FSND\projects\01_fyyur\starter_code\env\lib\site-packages\sqlalchemy\engine\base.py", line 1276, in _execute_context
+    self.dialect.do_execute(
+  File "C:\Users\cjohnson\Desktop\Projects\Personal\Udacity\FSND\projects\01_fyyur\starter_code\env\lib\site-packages\sqlalchemy\engine\default.py", line 593, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such table: Artist
+[SQL: SELECT "Artist".id AS "Artist_id", "Artist".name AS "Artist_name", "Artist".city AS "Artist_city", "Artist".state AS "Artist_state", "Artist".phone AS "Artist_phone", "Artist".genres AS "Artist_genres", "Artist".image_link AS "Artist_image_link", "Artist".facebook_link AS "Artist_facebook_link", "Artist".website AS "Artist_website", "Artist".seeking_venue AS "Artist_seeking_venue", "Artist".seeking_description AS "Artist_seeking_description" 
+FROM "Artist"]
+(Background on this error at: http://sqlalche.me/e/13/e3q8)
+2020-12-11 09:53:23,776 INFO: errors [in C:\Users\cjohnson\Desktop\Projects\Personal\Udacity\FSND\projects\01_fyyur\starter_code\app.py:453]
+2020-12-11 09:53:40,738 INFO: errors [in C:\Users\cjohnson\Desktop\Projects\Personal\Udacity\FSND\projects\01_fyyur\starter_code\app.py:453]
+2020-12-11 09:53:40,903 INFO: errors [in app.py:453]
+2020-12-11 09:53:40,903 INFO: errors [in app.py:453]
+2020-12-11 09:56:47,263 INFO: errors [in C:\Users\cjohnson\Desktop\Projects\Personal\Udacity\FSND\projects\01_fyyur\starter_code\app.py:459]
+2020-12-11 09:56:47,313 INFO: errors [in app.py:459]
+2020-12-11 09:56:47,313 INFO: errors [in app.py:459]
+2020-12-11 09:57:11,043 ERROR: Exception on /artists [GET] [in C:\Users\cjohnson\Desktop\Projects\Personal\Udacity\FSND\projects\01_fyyur\starter_code\env\lib\site-packages\flask\app.py:1891]
+Traceback (most recent call last):
+  File "C:\Users\cjohnson\Desktop\Projects\Personal\Udacity\FSND\projects\01_fyyur\starter_code\env\lib\site-packages\sqlalchemy\engine\base.py", line 1276, in _execute_context
+    self.dialect.do_execute(
+  File "C:\Users\cjohnson\Desktop\Projects\Personal\Udacity\FSND\projects\01_fyyur\starter_code\env\lib\site-packages\sqlalchemy\engine\default.py", line 593, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.OperationalError: no such table: Artist
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\cjohnson\Desktop\Projects\Personal\Udacity\FSND\projects\01_fyyur\starter_code\env\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\cjohnson\Desktop\Projects\Personal\Udacity\FSND\projects\01_fyyur\starter_code\env\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\cjohnson\Desktop\Projects\Personal\Udacity\FSND\projects\01_fyyur\starter_code\env\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\cjohnson\Desktop\Projects\Personal\Udacity\FSND\projects\01_fyyur\starter_code\env\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "C:\Users\cjohnson\Desktop\Projects\Personal\Udacity\FSND\projects\01_fyyur\starter_code\env\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\cjohnson\Desktop\Projects\Personal\Udacity\FSND\projects\01_fyyur\starter_code\env\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "app.py", line 251, in artists
+    data = db.session.query(Artist).all()
+  File "C:\Users\cjohnson\Desktop\Projects\Personal\Udacity\FSND\projects\01_fyyur\starter_code\env\lib\site-packages\sqlalchemy\orm\query.py", line 3373, in all
+    return list(self)
+  File "C:\Users\cjohnson\Desktop\Projects\Personal\Udacity\FSND\projects\01_fyyur\starter_code\env\lib\site-packages\sqlalchemy\orm\query.py", line 3535, in __iter__
+    return self._execute_and_instances(context)
+  File "C:\Users\cjohnson\Desktop\Projects\Personal\Udacity\FSND\projects\01_fyyur\starter_code\env\lib\site-packages\sqlalchemy\orm\query.py", line 3560, in _execute_and_instances
+    result = conn.execute(querycontext.statement, self._params)
+  File "C:\Users\cjohnson\Desktop\Projects\Personal\Udacity\FSND\projects\01_fyyur\starter_code\env\lib\site-packages\sqlalchemy\engine\base.py", line 1011, in execute
+    return meth(self, multiparams, params)
+  File "C:\Users\cjohnson\Desktop\Projects\Personal\Udacity\FSND\projects\01_fyyur\starter_code\env\lib\site-packages\sqlalchemy\sql\elements.py", line 298, in _execute_on_connection
+    return connection._execute_clauseelement(self, multiparams, params)
+  File "C:\Users\cjohnson\Desktop\Projects\Personal\Udacity\FSND\projects\01_fyyur\starter_code\env\lib\site-packages\sqlalchemy\engine\base.py", line 1124, in _execute_clauseelement
+    ret = self._execute_context(
+  File "C:\Users\cjohnson\Desktop\Projects\Personal\Udacity\FSND\projects\01_fyyur\starter_code\env\lib\site-packages\sqlalchemy\engine\base.py", line 1316, in _execute_context
+    self._handle_dbapi_exception(
+  File "C:\Users\cjohnson\Desktop\Projects\Personal\Udacity\FSND\projects\01_fyyur\starter_code\env\lib\site-packages\sqlalchemy\engine\base.py", line 1510, in _handle_dbapi_exception
+    util.raise_(
+  File "C:\Users\cjohnson\Desktop\Projects\Personal\Udacity\FSND\projects\01_fyyur\starter_code\env\lib\site-packages\sqlalchemy\util\compat.py", line 182, in raise_
+    raise exception
+  File "C:\Users\cjohnson\Desktop\Projects\Personal\Udacity\FSND\projects\01_fyyur\starter_code\env\lib\site-packages\sqlalchemy\engine\base.py", line 1276, in _execute_context
+    self.dialect.do_execute(
+  File "C:\Users\cjohnson\Desktop\Projects\Personal\Udacity\FSND\projects\01_fyyur\starter_code\env\lib\site-packages\sqlalchemy\engine\default.py", line 593, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such table: Artist
+[SQL: SELECT "Artist".id AS "Artist_id", "Artist".name AS "Artist_name", "Artist".city AS "Artist_city", "Artist".state AS "Artist_state", "Artist".phone AS "Artist_phone", "Artist".genres AS "Artist_genres", "Artist".image_link AS "Artist_image_link", "Artist".facebook_link AS "Artist_facebook_link", "Artist".website AS "Artist_website", "Artist".seeking_venue AS "Artist_seeking_venue", "Artist".seeking_description AS "Artist_seeking_description" 
+FROM "Artist"]
+(Background on this error at: http://sqlalche.me/e/13/e3q8)
+2020-12-11 09:57:11,043 ERROR: Exception on /artists [GET] [in C:\Users\cjohnson\Desktop\Projects\Personal\Udacity\FSND\projects\01_fyyur\starter_code\env\lib\site-packages\flask\app.py:1891]
+Traceback (most recent call last):
+  File "C:\Users\cjohnson\Desktop\Projects\Personal\Udacity\FSND\projects\01_fyyur\starter_code\env\lib\site-packages\sqlalchemy\engine\base.py", line 1276, in _execute_context
+    self.dialect.do_execute(
+  File "C:\Users\cjohnson\Desktop\Projects\Personal\Udacity\FSND\projects\01_fyyur\starter_code\env\lib\site-packages\sqlalchemy\engine\default.py", line 593, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.OperationalError: no such table: Artist
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\cjohnson\Desktop\Projects\Personal\Udacity\FSND\projects\01_fyyur\starter_code\env\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\cjohnson\Desktop\Projects\Personal\Udacity\FSND\projects\01_fyyur\starter_code\env\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\cjohnson\Desktop\Projects\Personal\Udacity\FSND\projects\01_fyyur\starter_code\env\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\cjohnson\Desktop\Projects\Personal\Udacity\FSND\projects\01_fyyur\starter_code\env\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "C:\Users\cjohnson\Desktop\Projects\Personal\Udacity\FSND\projects\01_fyyur\starter_code\env\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\cjohnson\Desktop\Projects\Personal\Udacity\FSND\projects\01_fyyur\starter_code\env\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "app.py", line 251, in artists
+    data = db.session.query(Artist).all()
+  File "C:\Users\cjohnson\Desktop\Projects\Personal\Udacity\FSND\projects\01_fyyur\starter_code\env\lib\site-packages\sqlalchemy\orm\query.py", line 3373, in all
+    return list(self)
+  File "C:\Users\cjohnson\Desktop\Projects\Personal\Udacity\FSND\projects\01_fyyur\starter_code\env\lib\site-packages\sqlalchemy\orm\query.py", line 3535, in __iter__
+    return self._execute_and_instances(context)
+  File "C:\Users\cjohnson\Desktop\Projects\Personal\Udacity\FSND\projects\01_fyyur\starter_code\env\lib\site-packages\sqlalchemy\orm\query.py", line 3560, in _execute_and_instances
+    result = conn.execute(querycontext.statement, self._params)
+  File "C:\Users\cjohnson\Desktop\Projects\Personal\Udacity\FSND\projects\01_fyyur\starter_code\env\lib\site-packages\sqlalchemy\engine\base.py", line 1011, in execute
+    return meth(self, multiparams, params)
+  File "C:\Users\cjohnson\Desktop\Projects\Personal\Udacity\FSND\projects\01_fyyur\starter_code\env\lib\site-packages\sqlalchemy\sql\elements.py", line 298, in _execute_on_connection
+    return connection._execute_clauseelement(self, multiparams, params)
+  File "C:\Users\cjohnson\Desktop\Projects\Personal\Udacity\FSND\projects\01_fyyur\starter_code\env\lib\site-packages\sqlalchemy\engine\base.py", line 1124, in _execute_clauseelement
+    ret = self._execute_context(
+  File "C:\Users\cjohnson\Desktop\Projects\Personal\Udacity\FSND\projects\01_fyyur\starter_code\env\lib\site-packages\sqlalchemy\engine\base.py", line 1316, in _execute_context
+    self._handle_dbapi_exception(
+  File "C:\Users\cjohnson\Desktop\Projects\Personal\Udacity\FSND\projects\01_fyyur\starter_code\env\lib\site-packages\sqlalchemy\engine\base.py", line 1510, in _handle_dbapi_exception
+    util.raise_(
+  File "C:\Users\cjohnson\Desktop\Projects\Personal\Udacity\FSND\projects\01_fyyur\starter_code\env\lib\site-packages\sqlalchemy\util\compat.py", line 182, in raise_
+    raise exception
+  File "C:\Users\cjohnson\Desktop\Projects\Personal\Udacity\FSND\projects\01_fyyur\starter_code\env\lib\site-packages\sqlalchemy\engine\base.py", line 1276, in _execute_context
+    self.dialect.do_execute(
+  File "C:\Users\cjohnson\Desktop\Projects\Personal\Udacity\FSND\projects\01_fyyur\starter_code\env\lib\site-packages\sqlalchemy\engine\default.py", line 593, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such table: Artist
+[SQL: SELECT "Artist".id AS "Artist_id", "Artist".name AS "Artist_name", "Artist".city AS "Artist_city", "Artist".state AS "Artist_state", "Artist".phone AS "Artist_phone", "Artist".genres AS "Artist_genres", "Artist".image_link AS "Artist_image_link", "Artist".facebook_link AS "Artist_facebook_link", "Artist".website AS "Artist_website", "Artist".seeking_venue AS "Artist_seeking_venue", "Artist".seeking_description AS "Artist_seeking_description" 
+FROM "Artist"]
+(Background on this error at: http://sqlalche.me/e/13/e3q8)
+2020-12-11 09:57:20,785 ERROR: Exception on /venues [GET] [in C:\Users\cjohnson\Desktop\Projects\Personal\Udacity\FSND\projects\01_fyyur\starter_code\env\lib\site-packages\flask\app.py:1891]
+Traceback (most recent call last):
+  File "C:\Users\cjohnson\Desktop\Projects\Personal\Udacity\FSND\projects\01_fyyur\starter_code\env\lib\site-packages\sqlalchemy\engine\base.py", line 1276, in _execute_context
+    self.dialect.do_execute(
+  File "C:\Users\cjohnson\Desktop\Projects\Personal\Udacity\FSND\projects\01_fyyur\starter_code\env\lib\site-packages\sqlalchemy\engine\default.py", line 593, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.OperationalError: no such table: Venue
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\cjohnson\Desktop\Projects\Personal\Udacity\FSND\projects\01_fyyur\starter_code\env\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\cjohnson\Desktop\Projects\Personal\Udacity\FSND\projects\01_fyyur\starter_code\env\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\cjohnson\Desktop\Projects\Personal\Udacity\FSND\projects\01_fyyur\starter_code\env\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\cjohnson\Desktop\Projects\Personal\Udacity\FSND\projects\01_fyyur\starter_code\env\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "C:\Users\cjohnson\Desktop\Projects\Personal\Udacity\FSND\projects\01_fyyur\starter_code\env\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\cjohnson\Desktop\Projects\Personal\Udacity\FSND\projects\01_fyyur\starter_code\env\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "app.py", line 67, in venues
+    venues = Venue.query.group_by(Venue.id, Venue.state, Venue.city).all()
+  File "C:\Users\cjohnson\Desktop\Projects\Personal\Udacity\FSND\projects\01_fyyur\starter_code\env\lib\site-packages\sqlalchemy\orm\query.py", line 3373, in all
+    return list(self)
+  File "C:\Users\cjohnson\Desktop\Projects\Personal\Udacity\FSND\projects\01_fyyur\starter_code\env\lib\site-packages\sqlalchemy\orm\query.py", line 3535, in __iter__
+    return self._execute_and_instances(context)
+  File "C:\Users\cjohnson\Desktop\Projects\Personal\Udacity\FSND\projects\01_fyyur\starter_code\env\lib\site-packages\sqlalchemy\orm\query.py", line 3560, in _execute_and_instances
+    result = conn.execute(querycontext.statement, self._params)
+  File "C:\Users\cjohnson\Desktop\Projects\Personal\Udacity\FSND\projects\01_fyyur\starter_code\env\lib\site-packages\sqlalchemy\engine\base.py", line 1011, in execute
+    return meth(self, multiparams, params)
+  File "C:\Users\cjohnson\Desktop\Projects\Personal\Udacity\FSND\projects\01_fyyur\starter_code\env\lib\site-packages\sqlalchemy\sql\elements.py", line 298, in _execute_on_connection
+    return connection._execute_clauseelement(self, multiparams, params)
+  File "C:\Users\cjohnson\Desktop\Projects\Personal\Udacity\FSND\projects\01_fyyur\starter_code\env\lib\site-packages\sqlalchemy\engine\base.py", line 1124, in _execute_clauseelement
+    ret = self._execute_context(
+  File "C:\Users\cjohnson\Desktop\Projects\Personal\Udacity\FSND\projects\01_fyyur\starter_code\env\lib\site-packages\sqlalchemy\engine\base.py", line 1316, in _execute_context
+    self._handle_dbapi_exception(
+  File "C:\Users\cjohnson\Desktop\Projects\Personal\Udacity\FSND\projects\01_fyyur\starter_code\env\lib\site-packages\sqlalchemy\engine\base.py", line 1510, in _handle_dbapi_exception
+    util.raise_(
+  File "C:\Users\cjohnson\Desktop\Projects\Personal\Udacity\FSND\projects\01_fyyur\starter_code\env\lib\site-packages\sqlalchemy\util\compat.py", line 182, in raise_
+    raise exception
+  File "C:\Users\cjohnson\Desktop\Projects\Personal\Udacity\FSND\projects\01_fyyur\starter_code\env\lib\site-packages\sqlalchemy\engine\base.py", line 1276, in _execute_context
+    self.dialect.do_execute(
+  File "C:\Users\cjohnson\Desktop\Projects\Personal\Udacity\FSND\projects\01_fyyur\starter_code\env\lib\site-packages\sqlalchemy\engine\default.py", line 593, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such table: Venue
+[SQL: SELECT "Venue".id AS "Venue_id", "Venue".name AS "Venue_name", "Venue".city AS "Venue_city", "Venue".state AS "Venue_state", "Venue".address AS "Venue_address", "Venue".phone AS "Venue_phone", "Venue".genres AS "Venue_genres", "Venue".image_link AS "Venue_image_link", "Venue".facebook_link AS "Venue_facebook_link", "Venue".website AS "Venue_website", "Venue".seeking_talent AS "Venue_seeking_talent", "Venue".seeking_description AS "Venue_seeking_description" 
+FROM "Venue" GROUP BY "Venue".id, "Venue".state, "Venue".city]
+(Background on this error at: http://sqlalche.me/e/13/e3q8)
+2020-12-11 09:57:20,785 ERROR: Exception on /venues [GET] [in C:\Users\cjohnson\Desktop\Projects\Personal\Udacity\FSND\projects\01_fyyur\starter_code\env\lib\site-packages\flask\app.py:1891]
+Traceback (most recent call last):
+  File "C:\Users\cjohnson\Desktop\Projects\Personal\Udacity\FSND\projects\01_fyyur\starter_code\env\lib\site-packages\sqlalchemy\engine\base.py", line 1276, in _execute_context
+    self.dialect.do_execute(
+  File "C:\Users\cjohnson\Desktop\Projects\Personal\Udacity\FSND\projects\01_fyyur\starter_code\env\lib\site-packages\sqlalchemy\engine\default.py", line 593, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.OperationalError: no such table: Venue
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\cjohnson\Desktop\Projects\Personal\Udacity\FSND\projects\01_fyyur\starter_code\env\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\cjohnson\Desktop\Projects\Personal\Udacity\FSND\projects\01_fyyur\starter_code\env\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\cjohnson\Desktop\Projects\Personal\Udacity\FSND\projects\01_fyyur\starter_code\env\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\cjohnson\Desktop\Projects\Personal\Udacity\FSND\projects\01_fyyur\starter_code\env\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "C:\Users\cjohnson\Desktop\Projects\Personal\Udacity\FSND\projects\01_fyyur\starter_code\env\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\cjohnson\Desktop\Projects\Personal\Udacity\FSND\projects\01_fyyur\starter_code\env\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "app.py", line 67, in venues
+    venues = Venue.query.group_by(Venue.id, Venue.state, Venue.city).all()
+  File "C:\Users\cjohnson\Desktop\Projects\Personal\Udacity\FSND\projects\01_fyyur\starter_code\env\lib\site-packages\sqlalchemy\orm\query.py", line 3373, in all
+    return list(self)
+  File "C:\Users\cjohnson\Desktop\Projects\Personal\Udacity\FSND\projects\01_fyyur\starter_code\env\lib\site-packages\sqlalchemy\orm\query.py", line 3535, in __iter__
+    return self._execute_and_instances(context)
+  File "C:\Users\cjohnson\Desktop\Projects\Personal\Udacity\FSND\projects\01_fyyur\starter_code\env\lib\site-packages\sqlalchemy\orm\query.py", line 3560, in _execute_and_instances
+    result = conn.execute(querycontext.statement, self._params)
+  File "C:\Users\cjohnson\Desktop\Projects\Personal\Udacity\FSND\projects\01_fyyur\starter_code\env\lib\site-packages\sqlalchemy\engine\base.py", line 1011, in execute
+    return meth(self, multiparams, params)
+  File "C:\Users\cjohnson\Desktop\Projects\Personal\Udacity\FSND\projects\01_fyyur\starter_code\env\lib\site-packages\sqlalchemy\sql\elements.py", line 298, in _execute_on_connection
+    return connection._execute_clauseelement(self, multiparams, params)
+  File "C:\Users\cjohnson\Desktop\Projects\Personal\Udacity\FSND\projects\01_fyyur\starter_code\env\lib\site-packages\sqlalchemy\engine\base.py", line 1124, in _execute_clauseelement
+    ret = self._execute_context(
+  File "C:\Users\cjohnson\Desktop\Projects\Personal\Udacity\FSND\projects\01_fyyur\starter_code\env\lib\site-packages\sqlalchemy\engine\base.py", line 1316, in _execute_context
+    self._handle_dbapi_exception(
+  File "C:\Users\cjohnson\Desktop\Projects\Personal\Udacity\FSND\projects\01_fyyur\starter_code\env\lib\site-packages\sqlalchemy\engine\base.py", line 1510, in _handle_dbapi_exception
+    util.raise_(
+  File "C:\Users\cjohnson\Desktop\Projects\Personal\Udacity\FSND\projects\01_fyyur\starter_code\env\lib\site-packages\sqlalchemy\util\compat.py", line 182, in raise_
+    raise exception
+  File "C:\Users\cjohnson\Desktop\Projects\Personal\Udacity\FSND\projects\01_fyyur\starter_code\env\lib\site-packages\sqlalchemy\engine\base.py", line 1276, in _execute_context
+    self.dialect.do_execute(
+  File "C:\Users\cjohnson\Desktop\Projects\Personal\Udacity\FSND\projects\01_fyyur\starter_code\env\lib\site-packages\sqlalchemy\engine\default.py", line 593, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such table: Venue
+[SQL: SELECT "Venue".id AS "Venue_id", "Venue".name AS "Venue_name", "Venue".city AS "Venue_city", "Venue".state AS "Venue_state", "Venue".address AS "Venue_address", "Venue".phone AS "Venue_phone", "Venue".genres AS "Venue_genres", "Venue".image_link AS "Venue_image_link", "Venue".facebook_link AS "Venue_facebook_link", "Venue".website AS "Venue_website", "Venue".seeking_talent AS "Venue_seeking_talent", "Venue".seeking_description AS "Venue_seeking_description" 
+FROM "Venue" GROUP BY "Venue".id, "Venue".state, "Venue".city]
+(Background on this error at: http://sqlalche.me/e/13/e3q8)
