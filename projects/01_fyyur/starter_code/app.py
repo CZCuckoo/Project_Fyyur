@@ -56,40 +56,24 @@ def index():
 # ***************Working on this 
 @app.route('/venues')
 def venues():
-  
-  # Sort of works. Only displaying one entry though. WHYYYYYYY?
   current_time = datetime.now().strftime('%Y-%m-%d %H:%S:%M')
-  venues = Venue.query.group_by(Venue.id, Venue.state, Venue.city).all()
-  venue_location = ''
-  data = [] #empty data list
   
-  for venue in venues:
-    if venue_location == venue.city + venue.state:
-      data[len(data) - 1]["venues"].append({
-        "id": venue.id,
-        "name":venue.name,
-      })
-    else:
-      venue_location == venue.city + venue.state
-      data.append({
-        "city":venue.city,
-        "state":venue.state,
-        "venues": [{
-          "id": venue.id,
-          "name":venue.name,
-        }]
-      })
-      
+  venue_query = Venue.query.all()
+  data = []
+  for venue in venue_query:
+    data.append({
+      "id": venue.id,
+      "name":venue.name,
+      "city":venue.city,
+      "state":venue.state
+    })
+    
+     
     return render_template('pages/venues.html', areas=data)
-
-
 
 
 @app.route('/venues/search', methods=['POST'])
 def search_venues():
-  # TODOS: implement search on artists with partial string search. Ensure it is case-insensitive.
-  # seach for Hop should return "The Musical Hop".
-  # search for "Music" should return "The Musical Hop" and "Park Square Live Music & Coffee"
   
   search_term = request.form.get('search_term', '')
   print("Search term is " + search_term)
@@ -100,7 +84,6 @@ def search_venues():
     data.append({
       "id": result.id,
       "name": result.name,
-      # "num_upcoming_shows": len(db.session.query(show).filter(show.artist_id == result.id).filter(show.start_time > datetime.now()).all()),
     })
     
     response = {
@@ -230,8 +213,27 @@ def create_venue_form():
 
 @app.route('/venues/create', methods=['POST'])
 def create_venue_submission():
+  form = VenueForm()
+  
+  name = form.name.data.strip()
+  city = form.city.data.strip()
+  state = form.state.data
+  address = form.address.data.strip()
+  phone = form.phone.data
+  phone = re.sub('\D', '', phone)
+  genres = form.genres.data 
+  seeking_talent = True if form.seeking_talent.data == 'Yes' else False
+  seeking_description = form.seeking_description.data.strip()
+  image_link = form.image_link.data.strip()
+  website = form.website.data.strip()
+  facebook_link = form.facebook_link.data.strip()
   # TODOS: insert form data as a new Venue record in the db, instead
   # TODOS: modify data to be the data object returned from db insertion
+  new_venue = Venue(name=name, city=city, state=state, address=address, phone=phone, \
+    seeking_talent=seeking_talent, seeking_description=seeking_description, image_link=image_link, \
+    website=website, facebook_link=facebook_link)
+  
+  ********Working on this
 
   # on successful db insert, flash success
   flash('Venue ' + request.form['name'] + ' was successfully listed!')
@@ -376,6 +378,18 @@ def create_artist_form():
 
 @app.route('/artists/create', methods=['POST'])
 def create_artist_submission():
+  form = ArtistForm()
+  
+  name = form.name.data.strip()
+  city = form.city.data.strip()
+  state = form.state.data()
+  phone = form.phone.data()
+  genres = form.genres.data
+  seeking_venue = True if form.seeking_venue.data == 'Yes' else False
+  seeking_description = form.seeking_description.data.strip()
+  image_link = form.image_link.data.strip()
+  website = form.website.data.strip()
+  facebook_link = form.facebook_link.data.strip()
   # called upon submitting the new artist listing form
   # TODOS: insert form data as a new Venue record in the db, instead
   # TODOS: modify data to be the data object returned from db insertion
