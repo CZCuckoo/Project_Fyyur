@@ -233,7 +233,7 @@ def create_venue_submission():
     seeking_talent=seeking_talent, seeking_description=seeking_description, image_link=image_link, \
     website=website, facebook_link=facebook_link)
   
-  ********Working on this
+  # ********Working on this
 
   # on successful db insert, flash success
   flash('Venue ' + request.form['name'] + ' was successfully listed!')
