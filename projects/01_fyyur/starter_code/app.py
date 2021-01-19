@@ -5,6 +5,8 @@
 import json
 import dateutil.parser
 import babel
+import re
+from sqlalchemy import func
 from flask import Flask, render_template, request, Response, flash, redirect, url_for
 from flask_moment import Moment
 from flask_sqlalchemy import SQLAlchemy
@@ -14,6 +16,7 @@ from logging import Formatter, FileHandler
 from flask_wtf import Form
 from forms import *
 from models import *
+
 
 
 #----------------------------------------------------------------------------#
@@ -51,25 +54,33 @@ def index():
   return render_template('pages/home.html')
 
 
-#  Venues
-#  ----------------------------------------------------------------
-# ***************Working on this 
+#----------------------------------------------------------------------------#
+# Venues.
+#----------------------------------------------------------------------------#
+
 @app.route('/venues')
 def venues():
   current_time = datetime.now().strftime('%Y-%m-%d %H:%S:%M')
   
-  venue_query = Venue.query.all()
+  all_areas = Venue.query.with_entities(func.count(Venue.id), Venue.city, Venue.state).group_by(Venue.city, Venue.state).all()
   data = []
-  for venue in venue_query:
+  
+  for area in all_areas:
+    area_venues = Venue.query.filter_by(state=area.state).filter_by(city=area.city).all()
+    venue_data = []
+    for venue in area_venues:
+      venue_data.append({
+        "id": venue.id,
+        "name": venue.name,
+        "num_upcoming_shows": len(db.session.query(Show).filter(Show.venue_id==1).filter(Show.start_time>datetime.now()).all())
+      })
     data.append({
-      "id": venue.id,
-      "name":venue.name,
-      "city":venue.city,
-      "state":venue.state
+      "city": area.city,
+      "state": area.state,
+      "venues": venue_data
     })
-    
-     
-    return render_template('pages/venues.html', areas=data)
+         
+  return render_template('pages/venues.html', areas=data)
 
 
 @app.route('/venues/search', methods=['POST'])
@@ -232,6 +243,8 @@ def create_venue_submission():
   new_venue = Venue(name=name, city=city, state=state, address=address, phone=phone, \
     seeking_talent=seeking_talent, seeking_description=seeking_description, image_link=image_link, \
     website=website, facebook_link=facebook_link)
+  db.session.add(new_venue)
+  db.session.commit()
   
   # ********Working on this
 
