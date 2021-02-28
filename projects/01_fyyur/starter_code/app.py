@@ -72,7 +72,7 @@ def venues():
       venue_data.append({
         "id": venue.id,
         "name": venue.name,
-        "num_upcoming_shows": len(db.session.query(Show).filter(Show.venue_id==1).filter(Show.start_time>datetime.now()).all())
+        "num_upcoming_shows": len(db.session.query(Show).filter(Show.venue_id==venue.id).filter(Show.start_time>datetime.now()).all())
       })
     data.append({
       "city": area.city,
